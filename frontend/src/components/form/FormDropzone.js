@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { useDrop } from "react-dnd";
 
@@ -7,8 +7,13 @@ import { Box, Button, Paper } from "@mui/material";
 import { ItemTypes } from "../../utils/dndItemTypes";
 import { FormTemplate } from "./FormTemplate";
 
+import { FormContext } from "../../context/FormContext";
+
 export const FormDropzone = () => {
-  const [formElements, setFormElements] = React.useState([]);
+  // const [formElements, setFormElements] = React.useState([]);
+
+  const { formElements, setFormElements, handleAddInputField } =
+    useContext(FormContext);
 
   //   DND hooks
   const [{ isOver }, drop] = useDrop({
@@ -20,22 +25,6 @@ export const FormDropzone = () => {
   });
 
   //   methods
-  const handleAddInputField = (inputField) => {
-    const alreadyInForm = !!formElements.find(
-      (el) => el.type === inputField.type
-    );
-    if (alreadyInForm) return;
-
-    setFormElements([...formElements, { ...inputField }]);
-  };
-
-  const handleRemoveInputField = (index) => {
-    const inputFields = [...formElements];
-
-    inputFields.splice(index, 1);
-
-    setFormElements([...inputFields]);
-  };
 
   return (
     <>
@@ -59,8 +48,8 @@ export const FormDropzone = () => {
           </Box>
 
           <FormTemplate
-            formElements={formElements}
-            onRemoveElement={handleRemoveInputField}
+          // formElements={formElements}
+          // onRemoveElement={handleRemoveInputField}
           />
         </Box>
       </Paper>
