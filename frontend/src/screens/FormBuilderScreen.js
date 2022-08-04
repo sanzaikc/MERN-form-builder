@@ -8,7 +8,7 @@ import { FormInputList } from "../components/dragable/FormInputList";
 import { FormDropzone } from "../components/form/FormDropzone";
 import { FormInputEdit } from "../components/form/FormInputEdit";
 
-import { FormProvider } from "../context/FormContext";
+import { FormProvider } from "../contexts/FormContext";
 
 export const FormBuilderScreen = () => {
   return (

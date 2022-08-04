@@ -7,7 +7,7 @@ import { Box, Button, Paper } from "@mui/material";
 import { ItemTypes } from "../../utils/dndItemTypes";
 import { FormTemplate } from "./FormTemplate";
 
-import { FormContext } from "../../context/FormContext";
+import { FormContext } from "../../contexts/FormContext";
 
 export const FormDropzone = () => {
   // const [formElements, setFormElements] = React.useState([]);

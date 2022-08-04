@@ -5,7 +5,7 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
 
 import * as FormField from "../formInput";
-import { FormContext } from "../../context/FormContext";
+import { FormContext } from "../../contexts/FormContext";
 
 export const FormTemplate = () => {
   const {
