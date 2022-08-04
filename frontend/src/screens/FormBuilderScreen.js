@@ -14,19 +14,17 @@ export const FormBuilderScreen = () => {
   return (
     <DndProvider backend={HTML5Backend}>
       <FormProvider>
-        <Box padding={3}>
-          <Grid container spacing={2}>
-            <Grid item md={3}>
-              <FormInputList />
-            </Grid>
-            <Grid item md={6}>
-              <FormDropzone />
-            </Grid>
-            <Grid item md={3}>
-              <FormInputEdit />
-            </Grid>
+        <Grid container spacing={2}>
+          <Grid item md={3}>
+            <FormInputList />
           </Grid>
-        </Box>
+          <Grid item md={6}>
+            <FormDropzone />
+          </Grid>
+          <Grid item md={3}>
+            <FormInputEdit />
+          </Grid>
+        </Grid>
       </FormProvider>
     </DndProvider>
   );
