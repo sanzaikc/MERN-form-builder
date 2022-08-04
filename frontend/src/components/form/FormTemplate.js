@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Box, Stack } from "@mui/material";
+import { Box, IconButton, Stack } from "@mui/material";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
 import * as FormField from "../formInput";
 
@@ -22,8 +23,14 @@ export const FormTemplate = ({ formElements, onRemoveElement }) => {
       <Stack spacing={4}>
         {formElements.map((item, index) => (
           <Box key={index}>
-            {generateField(item.type)}
-            <button onClick={() => onRemoveElement(index)}>Remove</button>
+            {generateField(item.type, {
+              style: {
+                width: "50%",
+              },
+            })}
+            <IconButton onClick={() => onRemoveElement(index)}>
+              <DeleteOutlineIcon />
+            </IconButton>
           </Box>
         ))}
       </Stack>

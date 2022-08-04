@@ -38,34 +38,35 @@ export const DropZone = () => {
   };
 
   return (
-    <Paper>
-      <Box
-        ref={drop}
-        padding={3}
-        style={{
-          border: "1px solid gray",
-          borderStyle: isOver ? "dashed" : "",
-        }}
-      >
-        <Box display="flex" justifyContent="flex-end" marginBottom={2}>
-          <Button
-            size="small"
-            variant="contained"
-            onClick={() => setFormElements([])}
-          >
-            Reset
-          </Button>
+    <>
+      <Paper>
+        <Box
+          ref={drop}
+          padding={3}
+          style={{
+            border: "1px solid gray",
+            borderStyle: isOver ? "dashed" : "",
+          }}
+        >
+          <Box display="flex" justifyContent="flex-end" marginBottom={2}>
+            <Button
+              size="small"
+              variant="contained"
+              onClick={() => setFormElements([])}
+            >
+              Reset
+            </Button>
+          </Box>
+
+          <FormTemplate
+            formElements={formElements}
+            onRemoveElement={handleRemoveInputField}
+          />
         </Box>
-
-        <FormTemplate
-          formElements={formElements}
-          onRemoveElement={handleRemoveInputField}
-        />
-      </Box>
-
+      </Paper>
       <Box padding={3}>
         <pre>{JSON.stringify({ formElements }, null, 2)}</pre>
       </Box>
-    </Paper>
+    </>
   );
 };
