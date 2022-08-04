@@ -1,5 +1,7 @@
 import React from "react";
 
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 import { Box, Grid } from "@mui/material";
 
 import { FormInputList } from "../components/dragable/FormInputList";
@@ -10,20 +12,22 @@ import { FormProvider } from "../context/FormContext";
 
 export const FormBuilderScreen = () => {
   return (
-    <FormProvider>
-      <Box padding={3}>
-        <Grid container spacing={2}>
-          <Grid item md={3}>
-            <FormInputList />
+    <DndProvider backend={HTML5Backend}>
+      <FormProvider>
+        <Box padding={3}>
+          <Grid container spacing={2}>
+            <Grid item md={3}>
+              <FormInputList />
+            </Grid>
+            <Grid item md={6}>
+              <FormDropzone />
+            </Grid>
+            <Grid item md={3}>
+              <FormInputEdit />
+            </Grid>
           </Grid>
-          <Grid item md={6}>
-            <FormDropzone />
-          </Grid>
-          <Grid item md={3}>
-            <FormInputEdit />
-          </Grid>
-        </Grid>
-      </Box>
-    </FormProvider>
+        </Box>
+      </FormProvider>
+    </DndProvider>
   );
 };
