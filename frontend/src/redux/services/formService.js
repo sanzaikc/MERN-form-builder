@@ -7,7 +7,6 @@ export const formApi = createApi({
   endpoints: (builder) => ({
     getAllForms: builder.query({
       query: () => "/forms",
-
       providesTags: (result) => {
         return result
           ? [
