@@ -10,6 +10,7 @@ import { FormTemplate } from "./form/FormTemplate";
 export const DropZone = () => {
   const [formElements, setFormElements] = React.useState([]);
 
+  //   DND hooks
   const [{ isOver }, drop] = useDrop({
     accept: ItemTypes.INPUT,
     drop: (item, moniter) => handleAddInputField(item),
@@ -18,6 +19,7 @@ export const DropZone = () => {
     }),
   });
 
+  //   methods
   const handleAddInputField = (inputField) => {
     const alreadyInForm = !!formElements.find(
       (el) => el.type === inputField.type
@@ -25,6 +27,14 @@ export const DropZone = () => {
     if (alreadyInForm) return;
 
     setFormElements([...formElements, { ...inputField }]);
+  };
+
+  const handleRemoveInputField = (index) => {
+    const inputFields = [...formElements];
+
+    inputFields.splice(index, 1);
+
+    setFormElements([...inputFields]);
   };
 
   return (
@@ -47,7 +57,14 @@ export const DropZone = () => {
           </Button>
         </Box>
 
-        <FormTemplate formElements={formElements} />
+        <FormTemplate
+          formElements={formElements}
+          onRemoveElement={handleRemoveInputField}
+        />
+      </Box>
+
+      <Box padding={3}>
+        <pre>{JSON.stringify({ formElements }, null, 2)}</pre>
       </Box>
     </Paper>
   );

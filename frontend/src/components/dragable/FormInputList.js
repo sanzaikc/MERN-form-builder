@@ -6,15 +6,15 @@ import { FormInputItem } from "./FormInputItem";
 
 const inputFields = [
   {
-    name: "Text",
+    label: "Text",
     type: "text",
   },
   {
-    name: "Email",
+    label: "Email",
     type: "email",
   },
   {
-    name: "Phone",
+    label: "Phone",
     type: "tel",
   },
 ];

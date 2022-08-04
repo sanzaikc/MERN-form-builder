@@ -27,7 +27,7 @@ export const FormInputItem = ({ inputField }) => {
       }}
     >
       <ListItemText>
-        <Typography>{inputField.name}</Typography>
+        <Typography>{inputField.label}</Typography>
       </ListItemText>
     </ListItem>
   );
