@@ -8,7 +8,8 @@ import * as FormField from "../formInput";
 import { FormContext } from "../../context/FormContext";
 
 export const FormTemplate = () => {
-  const { formElements, handleRemoveInputField } = useContext(FormContext);
+  const { formElements, handleRemoveInputField, setSelectedElement } =
+    useContext(FormContext);
 
   const generateField = (type, props = {}) => {
     const formFieldRef = {
@@ -52,7 +53,7 @@ export const FormTemplate = () => {
               </IconButton>
               <IconButton
                 style={{ marginLeft: 10 }}
-                // onClick={() => handleRemoveInputField(index)}
+                onClick={() => setSelectedElement(item)}
               >
                 <EditIcon />
               </IconButton>
