@@ -2,12 +2,12 @@ import React from "react";
 
 import { useDrop } from "react-dnd";
 
-import { Grid, Box, Button, Stack, Paper } from "@mui/material";
+import { Box, Button, Paper } from "@mui/material";
 
-import { ItemTypes } from "../utils/dndItemTypes";
-import { FormTemplate } from "./form/FormTemplate";
+import { ItemTypes } from "../../utils/dndItemTypes";
+import { FormTemplate } from "./FormTemplate";
 
-export const DropZone = () => {
+export const FormDropzone = () => {
   const [formElements, setFormElements] = React.useState([]);
 
   //   DND hooks
