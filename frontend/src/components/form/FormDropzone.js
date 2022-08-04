@@ -66,10 +66,7 @@ export const FormDropzone = () => {
             </Button>
           </Box>
 
-          <FormTemplate
-          // formElements={formElements}
-          // onRemoveElement={handleRemoveInputField}
-          />
+          <FormTemplate />
         </Box>
       </Paper>
       <Box padding={3}>
