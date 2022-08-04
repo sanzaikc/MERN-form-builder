@@ -2,8 +2,10 @@ import React from "react";
 
 import { useDrop } from "react-dnd";
 
-import { Box, Button, Paper } from "@mui/material";
+import { Grid, Box, Button, Stack, Paper } from "@mui/material";
+
 import { ItemTypes } from "../utils/dndItemTypes";
+import { FormTemplate } from "./form/FormTemplate";
 
 export const DropZone = () => {
   const [formElements, setFormElements] = React.useState([]);
@@ -35,7 +37,7 @@ export const DropZone = () => {
           borderStyle: isOver ? "dashed" : "",
         }}
       >
-        <Box display="flex" justifyContent="flex-end">
+        <Box display="flex" justifyContent="flex-end" marginBottom={2}>
           <Button
             size="small"
             variant="contained"
@@ -44,7 +46,8 @@ export const DropZone = () => {
             Reset
           </Button>
         </Box>
-        <p>{JSON.stringify(formElements)}</p>
+
+        <FormTemplate formElements={formElements} />
       </Box>
     </Paper>
   );

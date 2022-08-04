@@ -2,7 +2,7 @@ import React from "react";
 
 import { Box, Grid } from "@mui/material";
 
-import { FormInputList } from "../components/formInput/FormInputList";
+import { FormInputList } from "../components/dragable/FormInputList";
 import { DropZone } from "../components/DropZone";
 
 export const FormBuilderScreen = () => {
