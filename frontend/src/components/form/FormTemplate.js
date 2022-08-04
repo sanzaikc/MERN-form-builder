@@ -8,8 +8,12 @@ import * as FormField from "../formInput";
 import { FormContext } from "../../context/FormContext";
 
 export const FormTemplate = () => {
-  const { formElements, handleRemoveInputField, setSelectedElement } =
-    useContext(FormContext);
+  const {
+    formElements,
+    handleRemoveInputField,
+    selectedElementIndex,
+    setSelectedElementIndex,
+  } = useContext(FormContext);
 
   const generateField = (type, props = {}) => {
     const formFieldRef = {
@@ -38,11 +42,14 @@ export const FormTemplate = () => {
               border: "1px solid lightgray",
               borderStyle: "dashed",
               padding: 16,
+              backgroundColor: selectedElementIndex === index ? "#cde3fa" : "",
             }}
           >
             {generateField(item.type, {
+              disabled: true,
               fullWidth: true,
               label: item.label,
+              required: item.required ?? null,
             })}
             <Box display="flex" alignItems="center">
               <IconButton
@@ -53,7 +60,7 @@ export const FormTemplate = () => {
               </IconButton>
               <IconButton
                 style={{ marginLeft: 10 }}
-                onClick={() => setSelectedElement(item)}
+                onClick={() => setSelectedElementIndex(index)}
               >
                 <EditIcon />
               </IconButton>

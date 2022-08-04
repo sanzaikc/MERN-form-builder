@@ -4,14 +4,14 @@ export const FormContext = createContext({});
 
 export const FormProvider = ({ children }) => {
   const [formElements, setFormElements] = React.useState([]);
-  const [selectedElement, setSelectedElement] = React.useState(null);
+  const [selectedElementIndex, setSelectedElementIndex] = React.useState(null);
 
   //   methods
   const handleAddInputField = (inputField) => {
-    const alreadyInForm = !!formElements.find(
-      (el) => el.type === inputField.type
-    );
-    if (alreadyInForm) return;
+    // const alreadyInForm = !!formElements.find(
+    //   (el) => el.type === inputField.type
+    // );
+    // if (alreadyInForm) return;
 
     setFormElements((prevState) => [...prevState, { ...inputField }]);
   };
@@ -23,6 +23,14 @@ export const FormProvider = ({ children }) => {
     setFormElements([...inputFields]);
   };
 
+  const handleElementUpdate = (elIndex, elementUpdate) => {
+    const updatedElementList = formElements.map((el, index) =>
+      index === elIndex ? elementUpdate : el
+    );
+
+    setFormElements(updatedElementList);
+  };
+
   return (
     <FormContext.Provider
       value={{
@@ -30,8 +38,9 @@ export const FormProvider = ({ children }) => {
         setFormElements,
         handleAddInputField,
         handleRemoveInputField,
-        selectedElement,
-        setSelectedElement,
+        selectedElementIndex,
+        setSelectedElementIndex,
+        handleElementUpdate,
       }}
     >
       {children}
