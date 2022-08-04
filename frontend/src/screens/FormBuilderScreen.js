@@ -10,11 +10,7 @@ import { FormInputEdit } from "../components/form/FormInputEdit";
 
 import { FormProvider } from "../contexts/FormContext";
 
-import { useCreateFormMutation } from "../redux/services/formService";
-
 export const FormBuilderScreen = () => {
-  const [createForm, { isLoading }] = useCreateFormMutation();
-
   return (
     <DndProvider backend={HTML5Backend}>
       <FormProvider>

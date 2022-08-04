@@ -10,8 +10,6 @@ import { FormTemplate } from "./FormTemplate";
 import { FormContext } from "../../contexts/FormContext";
 
 export const FormDropzone = () => {
-  // const [formElements, setFormElements] = React.useState([]);
-
   const { formElements, setFormElements, handleAddInputField } =
     useContext(FormContext);
 
@@ -25,7 +23,13 @@ export const FormDropzone = () => {
   });
 
   //   methods
-  const handleCreateForm = () => {};
+  const handleCreateForm = () => {
+    const payload = {
+      name: "Test Form",
+      fields: [...formElements],
+    };
+    console.log(payload);
+  };
 
   return (
     <>
@@ -48,7 +52,8 @@ export const FormDropzone = () => {
             <Button
               size="small"
               variant="contained"
-              onClick={() => handleCreateForm}
+              disabled={!formElements.length}
+              onClick={handleCreateForm}
             >
               Save
             </Button>
