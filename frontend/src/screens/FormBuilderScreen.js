@@ -2,7 +2,7 @@ import React from "react";
 
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { Box, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 
 import { FormInputList } from "../components/dragable/FormInputList";
 import { FormDropzone } from "../components/form/FormDropzone";
