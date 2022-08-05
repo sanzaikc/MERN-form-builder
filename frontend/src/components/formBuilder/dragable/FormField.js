@@ -8,7 +8,7 @@ import { FormContext } from "../../../contexts/FormContext";
 
 import { generateField } from "../../../utils/generateField";
 
-export const FormField = ({ index, item }) => {
+export const FormField = ({ editable = false, index, item }) => {
   const {
     handleRemoveInputField,
     selectedElementIndex,
@@ -27,25 +27,27 @@ export const FormField = ({ index, item }) => {
       }}
     >
       {generateField(item.type, {
-        disabled: true,
+        disabled: !editable,
         fullWidth: true,
         label: item.label,
         required: item.required ?? null,
       })}
-      <Box display="flex" alignItems="center">
-        <IconButton
-          style={{ marginLeft: 10 }}
-          onClick={() => handleRemoveInputField(index)}
-        >
-          <DeleteOutlineIcon />
-        </IconButton>
-        <IconButton
-          style={{ marginLeft: 10 }}
-          onClick={() => setSelectedElementIndex(index)}
-        >
-          <EditIcon />
-        </IconButton>
-      </Box>
+      {!editable && (
+        <Box display="flex" alignItems="center">
+          <IconButton
+            style={{ marginLeft: 10 }}
+            onClick={() => handleRemoveInputField(index)}
+          >
+            <DeleteOutlineIcon />
+          </IconButton>
+          <IconButton
+            style={{ marginLeft: 10 }}
+            onClick={() => setSelectedElementIndex(index)}
+          >
+            <EditIcon />
+          </IconButton>
+        </Box>
+      )}
     </Box>
   );
 };
