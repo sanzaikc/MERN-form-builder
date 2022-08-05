@@ -22,11 +22,11 @@ export const FormInputItem = ({ inputField }) => {
       ref={drag}
       style={{
         padding: "15px 20px",
-        border: "none",
-        borderBottom: "1px solid lightgray",
+        border: "1px solid lightgray",
+        borderStyle: "dashed",
         backgroundColor: "#fafafa",
         opacity: isDragging ? 0.5 : 1,
-        cursor: isDragging ? "grabbing" : "grab",
+        cursor: "move",
       }}
     >
       <Typography>{inputField.label}</Typography>
