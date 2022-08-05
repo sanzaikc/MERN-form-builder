@@ -39,7 +39,10 @@ export const Navbar = () => {
               <Button variant="outlined" onClick={() => navigate("/")}>
                 All Forms
               </Button>
-              <Button variant="contained" onClick={() => navigate("/create")}>
+              <Button
+                variant="contained"
+                onClick={() => navigate("/forms/create")}
+              >
                 Create Form
               </Button>
             </Box>

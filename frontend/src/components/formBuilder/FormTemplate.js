@@ -30,7 +30,12 @@ export const FormTemplate = () => {
   return (
     <Stack spacing={3}>
       {!formElements?.length ? (
-        <Box display="flex" alignItems="center" justifyContent="center">
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          paddingY={3}
+        >
           <Typography>Drap & Drop Input fields here.</Typography>
         </Box>
       ) : (

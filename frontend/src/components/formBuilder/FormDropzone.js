@@ -73,6 +73,7 @@ export const FormDropzone = () => {
         style={{
           border: "1px solid gray",
           borderStyle: isOver ? "dashed" : "",
+          backgroundColor: isOver ? "lightgreen" : "",
         }}
       >
         <FormTemplate />

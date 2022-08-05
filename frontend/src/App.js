@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { AppLayout } from "./layouts/AppLayout";
 import { FormBuilderScreen } from "./screens/FormBuilderScreen";
@@ -9,8 +9,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AppLayout />}>
-          <Route index element={<FormList />} />
-          <Route path="/create" element={<FormBuilderScreen />} />
+          <Route index element={<Navigate to="/forms" replace={true} />} />
+          <Route path="/forms" element={<FormList />} />
+          <Route path="/forms/create" element={<FormBuilderScreen />} />
         </Route>
       </Routes>
     </BrowserRouter>
