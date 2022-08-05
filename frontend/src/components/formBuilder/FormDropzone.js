@@ -40,8 +40,13 @@ export const FormDropzone = () => {
 
   const [updateForm, { isLoading: updatingForm }] = useUpdateFormMutation();
 
-  const [getFormDetail, { data: formDetail, isLoading: gettingDetail }] =
-    useLazyGetFormDetailQuery();
+  const [
+    getFormDetail,
+    {
+      data: formDetail,
+      // isLoading: gettingDetail
+    },
+  ] = useLazyGetFormDetailQuery();
 
   //   DND hooks
   const [{ isOver }, drop] = useDrop({
