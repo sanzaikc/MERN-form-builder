@@ -5,14 +5,18 @@ import { useParams } from "react-router-dom";
 import {
   Box,
   Button,
+  CircularProgress,
   Divider,
   Paper,
   TextField,
   Typography,
 } from "@mui/material";
-import { useLazyGetFormDetailQuery } from "../redux/services/formService";
-import { generateField } from "../utils/generateField";
 import { Container } from "@mui/system";
+
+import { generateField } from "../../utils/generateField";
+
+import { useLazyGetFormDetailQuery } from "../../redux/services/formService";
+import { useCreateSubmissionMutation } from "../../redux/services/submissionService";
 
 export const SubmissionScreen = () => {
   const [submitter, setSubmitter] = React.useState("");
@@ -24,10 +28,8 @@ export const SubmissionScreen = () => {
   const [getFormDetail, { data: formDetail, error, isLoading: gettingDetail }] =
     useLazyGetFormDetailQuery();
 
-  React.useEffect(() => {
-    if (!formId) return;
-    getFormDetail(formId);
-  }, [formId, getFormDetail]);
+  const [createSubmission, { isLoading: sumittingForm }] =
+    useCreateSubmissionMutation();
 
   //   methods
   const handleSubmission = (e) => {
@@ -39,8 +41,13 @@ export const SubmissionScreen = () => {
       values: submission,
     };
 
-    alert(JSON.stringify(payload, null, 2));
+    createSubmission(payload).unwrap();
   };
+
+  React.useEffect(() => {
+    if (!formId) return;
+    getFormDetail(formId);
+  }, [formId, getFormDetail]);
 
   if (gettingDetail) return <div>Loading...</div>;
 
@@ -79,7 +86,10 @@ export const SubmissionScreen = () => {
               required
               onChange={(e) => setSubmitter(e.target.value)}
             />
-            <Button type="submit" variant="contained">
+            <Button type="submit" variant="contained" disabled={sumittingForm}>
+              {sumittingForm && (
+                <CircularProgress size={16} style={{ marginRight: 4 }} />
+              )}
               Submit
             </Button>
           </Box>

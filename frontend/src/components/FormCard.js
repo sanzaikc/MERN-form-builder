@@ -35,7 +35,17 @@ export const FormCard = ({ form }) => {
         </CardContent>
         <Divider />
         <CardActions>
-          <Box display="flex" justifyContent="flex-end" flexGrow={1}>
+          <Box display="flex" justifyContent="space-between" flexGrow={1}>
+            <Button size="small">
+              <a
+                size="small"
+                href={`/submissions/${form._id}/submit`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Link
+              </a>
+            </Button>
             <Button
               size="small"
               onClick={() => navigate(`/forms/${form._id}/edit`)}
