@@ -32,8 +32,12 @@ export const FormDropzone = () => {
   const editMode = useMemo(() => !!formId, [formId]);
 
   // context
-  const { formElements, setFormElements, handleAddInputField } =
-    useContext(FormContext);
+  const {
+    formElements,
+    setFormElements,
+    handleAddInputField,
+    setSelectedElementIndex,
+  } = useContext(FormContext);
 
   // RTKQuery
   const [createForm, { isLoading: creatingForm }] = useCreateFormMutation();
@@ -61,6 +65,7 @@ export const FormDropzone = () => {
   const handleFormReset = () => {
     setFormElements(!formDetail ? [] : formDetail.fields);
     setFormName(!formDetail ? "" : formDetail.name);
+    setSelectedElementIndex(null);
   };
 
   const handleCreateForm = () => {
