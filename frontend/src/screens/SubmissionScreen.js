@@ -2,12 +2,20 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
-import { Box, Button, Divider, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  Paper,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useLazyGetFormDetailQuery } from "../redux/services/formService";
 import { generateField } from "../utils/generateField";
 import { Container } from "@mui/system";
 
 export const SubmissionScreen = () => {
+  const [submitter, setSubmitter] = React.useState("");
   const [submission, setSubmission] = React.useState({});
 
   const { formId } = useParams();
@@ -24,6 +32,14 @@ export const SubmissionScreen = () => {
   //   methods
   const handleSubmission = (e) => {
     e.preventDefault();
+
+    const payload = {
+      submitter,
+      form: formId,
+      values: submission,
+    };
+
+    alert(JSON.stringify(payload, null, 2));
   };
 
   if (gettingDetail) return <div>Loading...</div>;
@@ -44,19 +60,25 @@ export const SubmissionScreen = () => {
                 {generateField(field.type, {
                   fullWidth: true,
                   value: submission[[field.label]],
-                  type: field.type,
-                  required: field.required,
                   onChange: (e) =>
                     setSubmission({
                       ...submission,
                       [field.label]: e.target.value,
                     }),
+                  ...field,
                 })}
               </Box>
             ))}
           </Box>
           <Divider />
-          <Box padding={3}>
+          <Box display="flex" justifyContent="space-between" padding={3}>
+            <TextField
+              value={submitter}
+              placeholder="Your Name"
+              size="small"
+              required
+              onChange={(e) => setSubmitter(e.target.value)}
+            />
             <Button type="submit" variant="contained">
               Submit
             </Button>
