@@ -4,7 +4,8 @@ import { AppLayout } from "./layouts/AppLayout";
 import { CreateFormScreen } from "./screens/forms/CreateFormScreen";
 import { EditFormScreen } from "./screens/forms/EditFormScreen";
 import { FormListScreen } from "./screens/forms/FormListScreen";
-import { SubmissionScreen } from "./screens/submissions/SubmissionScreen";
+import { SubmitScreen } from "./screens/forms/submissions/SubmitScreen";
+import { NotFound } from "./screens/NotFound";
 
 function App() {
   return (
@@ -17,8 +18,9 @@ function App() {
           <Route path="/forms/:formId/edit" element={<EditFormScreen />} />
           <Route
             path="/submissions/:formId/submit"
-            element={<SubmissionScreen />}
+            element={<SubmitScreen />}
           />
+          <Route path="/*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

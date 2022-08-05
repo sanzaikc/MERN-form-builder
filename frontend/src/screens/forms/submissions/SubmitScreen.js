@@ -13,12 +13,12 @@ import {
 } from "@mui/material";
 import { Container } from "@mui/system";
 
-import { generateField } from "../../utils/generateField";
+import { generateField } from "../../../utils/generateField";
 
-import { useLazyGetFormDetailQuery } from "../../redux/services/formService";
-import { useCreateSubmissionMutation } from "../../redux/services/submissionService";
+import { useLazyGetFormDetailQuery } from "../../../redux/services/formService";
+import { useCreateSubmissionMutation } from "../../../redux/services/submissionService";
 
-export const SubmissionScreen = () => {
+export const SubmitScreen = () => {
   const [submitter, setSubmitter] = React.useState("");
   const [submission, setSubmission] = React.useState({});
 

@@ -19,7 +19,10 @@ export const FormCard = ({ form }) => {
 
   return (
     <Grid item xs={12} sm={6} md={4} lg={2} xl={1.5}>
-      <Card variant="outlined">
+      <Card
+        variant="outlined"
+        onClick={() => navigate(`/forms/${form._id}/submissions`)}
+      >
         <CardContent>
           <Box display="flex" flexDirection="column" alignItems="center">
             <FeedIcon
