@@ -2,7 +2,7 @@ import React from "react";
 
 import { useDrag } from "react-dnd";
 
-import { Typography, ListItem, ListItemText } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import { ItemTypes } from "../../../utils/dndItemTypes";
 
@@ -18,18 +18,18 @@ export const FormInputItem = ({ inputField }) => {
   });
 
   return (
-    <ListItem
+    <Box
       ref={drag}
       style={{
+        padding: "15px 20px",
+        border: "none",
         borderBottom: "1px solid lightgray",
         backgroundColor: "#fafafa",
         opacity: isDragging ? 0.5 : 1,
         cursor: isDragging ? "grabbing" : "grab",
       }}
     >
-      <ListItemText>
-        <Typography>{inputField.label}</Typography>
-      </ListItemText>
-    </ListItem>
+      <Typography>{inputField.label}</Typography>
+    </Box>
   );
 };

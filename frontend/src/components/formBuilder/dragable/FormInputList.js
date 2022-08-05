@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Paper, List, Typography, Box, Divider } from "@mui/material";
+import { Paper, Typography, Box, Divider, Stack } from "@mui/material";
 
 import { FormInputItem } from "./FormInputItem";
 
@@ -25,11 +25,12 @@ export const FormInputList = () => {
       <Box padding={2}>
         <Typography>Input Fields</Typography>
         <Divider />
-        <List>
+        <br />
+        <Stack spacing={1}>
           {inputFields.map((item, index) => (
             <FormInputItem key={index} inputField={item} />
           ))}
-        </List>
+        </Stack>
       </Box>
     </Paper>
   );
