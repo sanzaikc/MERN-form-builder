@@ -4,8 +4,8 @@ import { Box, IconButton, Stack, Typography } from "@mui/material";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
 
-import * as FormField from "../formInput";
 import { FormContext } from "../../contexts/FormContext";
+import { generateField } from "../../utils/generateField";
 
 export const FormTemplate = () => {
   const {
@@ -14,18 +14,6 @@ export const FormTemplate = () => {
     selectedElementIndex,
     setSelectedElementIndex,
   } = useContext(FormContext);
-
-  const generateField = (type, props = {}) => {
-    const formFieldRef = {
-      text: "FormTextField",
-      email: "FormEmailField",
-      tel: "FormPhoneField",
-    };
-
-    const Field = FormField[formFieldRef[type]];
-
-    return Field ? <Field {...props} /> : null;
-  };
 
   return (
     <Stack spacing={3}>
