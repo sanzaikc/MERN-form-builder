@@ -2,8 +2,9 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
-import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
-import FileDownloadDoneIcon from "@mui/icons-material/FileDownloadDone";
+import { Grid, Typography } from "@mui/material";
+
+import { SubmissionCard } from "../../../components/SubmissionCard";
 
 import { useLazyGetSubmissionByFormQuery } from "../../../redux/services/submissionService";
 
@@ -36,34 +37,7 @@ export const FormSubmissions = () => {
         ) : (
           formSubmissions?.map((submission, index) => (
             <Grid key={index} item xs={12} sm={6} md={4} lg={2} xl={1.5}>
-              <Card
-                variant="outlined"
-                style={{
-                  cursor: "pointer",
-                }}
-              >
-                <CardContent>
-                  <Box
-                    display="flex"
-                    flexDirection="column"
-                    alignItems="center"
-                  >
-                    <FileDownloadDoneIcon
-                      style={{
-                        height: 150,
-                        width: 100,
-                        color: "lightgray",
-                      }}
-                    />
-                    <Box>
-                      <Typography variant="body2">Submitted by:</Typography>
-                      <Typography variant="body1">
-                        {submission.submitter}
-                      </Typography>
-                    </Box>
-                  </Box>
-                </CardContent>
-              </Card>
+              <SubmissionCard submission={submission} />
             </Grid>
           ))
         )}
