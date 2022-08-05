@@ -1,11 +1,15 @@
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import { FormBuilder } from "../../components/formBuilder/FormBuilder";
 
 export const CreateFormScreen = () => {
   return (
     <>
-      <Typography variant="h6">Create Form</Typography>
+      <Box display="flex" justifyContent="center">
+        <Typography variant="h6" style={{ fontWeight: 600 }}>
+          Create Form
+        </Typography>
+      </Box>
       <br />
       <FormBuilder />
     </>
