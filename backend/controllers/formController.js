@@ -7,10 +7,10 @@ export const getAllForms = async (req, res) => {
   res.status(200).json(forms);
 };
 
-export const getForm = async (req, res) => {
+export const getFormDetail = async (req, res) => {
   const { formId } = req.params;
 
-  const form = Form.findById(formId);
+  const form = await Form.findById(formId);
 
   res.status(200).json(form);
 };

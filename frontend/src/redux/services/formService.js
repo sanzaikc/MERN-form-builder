@@ -17,6 +17,11 @@ export const formApi = createApi({
       },
     }),
 
+    getFormDetail: builder.query({
+      query: (formId) => `/forms/${formId}`,
+      providesTags: (result, error, id) => [{ type: "Form", id }],
+    }),
+
     createForm: builder.mutation({
       query: (body) => ({ url: `/forms`, method: "POST", body }),
       invalidatesTags: [{ type: "Form", id: "LIST" }],
@@ -24,4 +29,8 @@ export const formApi = createApi({
   }),
 });
 
-export const { useGetAllFormsQuery, useCreateFormMutation } = formApi;
+export const {
+  useGetAllFormsQuery,
+  useCreateFormMutation,
+  useLazyGetFormDetailQuery,
+} = formApi;

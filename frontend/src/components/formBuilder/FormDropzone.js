@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 
 import { useDrop } from "react-dnd";
+import { useNavigate, useParams } from "react-router-dom";
 
 import {
   Box,
@@ -15,20 +16,29 @@ import { ItemTypes } from "../../utils/dndItemTypes";
 import { FormTemplate } from "./FormTemplate";
 
 import { FormContext } from "../../contexts/FormContext";
-import { useCreateFormMutation } from "../../redux/services/formService";
-import { useNavigate } from "react-router-dom";
+import {
+  useCreateFormMutation,
+  useLazyGetFormDetailQuery,
+} from "../../redux/services/formService";
 
 export const FormDropzone = () => {
   const [formName, setFormName] = React.useState("");
 
   const navigate = useNavigate();
 
+  const { formId } = useParams();
+
+  const editMode = useMemo(() => !!formId, [formId]);
+
   // context
   const { formElements, setFormElements, handleAddInputField } =
     useContext(FormContext);
 
   // RTKQuery
-  const [createForm, { isLoading }] = useCreateFormMutation();
+  const [createForm, { isLoading: creatingForm }] = useCreateFormMutation();
+
+  const [getFormDetail, { data: formDetail, isLoading: gettingDetail }] =
+    useLazyGetFormDetailQuery();
 
   //   DND hooks
   const [{ isOver }, drop] = useDrop({
@@ -62,12 +72,27 @@ export const FormDropzone = () => {
       });
   };
 
+  const handleEditForm = () => {
+    alert(JSON.stringify(formElements, null, 2));
+  };
+
+  React.useEffect(() => {
+    if (!formId) return;
+    getFormDetail(formId);
+  }, [formId, getFormDetail]);
+
+  React.useEffect(() => {
+    if (!formDetail) return;
+
+    setFormName(formDetail.name);
+    setFormElements(formDetail.fields);
+  }, [formDetail, setFormElements]);
+
   return (
     <Paper>
       <Box paddingX={3} paddingY={2}>
         <Box display="flex" justifyContent="space-between" alignItems="end">
           <TextField
-            // variant="filled"
             placeholder="Enter form name"
             size="small"
             style={{ width: "50%" }}
@@ -77,13 +102,15 @@ export const FormDropzone = () => {
           <Box display="flex" justifyContent="space-between" gap={2}>
             <Button
               variant="contained"
-              disabled={!formName.length || !formElements.length}
-              onClick={handleCreateForm}
+              disabled={
+                !formName.length || !formElements.length || creatingForm
+              }
+              onClick={editMode ? handleEditForm : handleCreateForm}
             >
-              {isLoading && (
+              {creatingForm && (
                 <CircularProgress size={16} style={{ marginRight: 4 }} />
               )}
-              Save
+              {editMode ? "Update" : "Save"}
             </Button>
             <Button variant="outlined" onClick={handleFormReset}>
               Reset
