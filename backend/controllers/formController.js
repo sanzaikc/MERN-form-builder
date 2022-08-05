@@ -20,3 +20,16 @@ export const addForm = async (req, res) => {
 
   res.status(201).json(form);
 };
+
+export const updateForm = async (req, res) => {
+  const { name, fields } = req.body;
+
+  const form = await Form.findByIdAndUpdate(req.params.formId, {
+    name,
+    fields,
+  });
+
+  if (!form) throw new Error("Form not found!");
+
+  res.status(201).json(form);
+};

@@ -19,6 +19,7 @@ import { FormContext } from "../../contexts/FormContext";
 import {
   useCreateFormMutation,
   useLazyGetFormDetailQuery,
+  useUpdateFormMutation,
 } from "../../redux/services/formService";
 
 export const FormDropzone = () => {
@@ -36,6 +37,8 @@ export const FormDropzone = () => {
 
   // RTKQuery
   const [createForm, { isLoading: creatingForm }] = useCreateFormMutation();
+
+  const [updateForm, { isLoading: updatingForm }] = useUpdateFormMutation();
 
   const [getFormDetail, { data: formDetail, isLoading: gettingDetail }] =
     useLazyGetFormDetailQuery();
@@ -73,7 +76,13 @@ export const FormDropzone = () => {
   };
 
   const handleEditForm = () => {
-    alert(JSON.stringify(formElements, null, 2));
+    const updatePayload = {
+      id: formDetail._id,
+      name: formName,
+      fields: [...formElements],
+    };
+
+    updateForm(updatePayload);
   };
 
   React.useEffect(() => {
@@ -107,7 +116,7 @@ export const FormDropzone = () => {
               }
               onClick={editMode ? handleEditForm : handleCreateForm}
             >
-              {creatingForm && (
+              {(creatingForm || updatingForm) && (
                 <CircularProgress size={16} style={{ marginRight: 4 }} />
               )}
               {editMode ? "Update" : "Save"}

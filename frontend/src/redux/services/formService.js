@@ -26,6 +26,18 @@ export const formApi = createApi({
       query: (body) => ({ url: `/forms`, method: "POST", body }),
       invalidatesTags: [{ type: "Form", id: "LIST" }],
     }),
+
+    updateForm: builder.mutation({
+      query: ({ id, ...rest }) => ({
+        url: `/forms/${id}`,
+        method: "PUT",
+        body: rest,
+      }),
+      invalidatesTags: (result, error, id) => [
+        { type: "Form", id: "LIST" },
+        { type: "Form", id },
+      ],
+    }),
   }),
 });
 
@@ -33,4 +45,5 @@ export const {
   useGetAllFormsQuery,
   useCreateFormMutation,
   useLazyGetFormDetailQuery,
+  useUpdateFormMutation,
 } = formApi;
