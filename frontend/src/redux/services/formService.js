@@ -19,7 +19,7 @@ export const formApi = createApi({
 
     getFormDetail: builder.query({
       query: (formId) => `/forms/${formId}`,
-      providesTags: (result, error, id) => [{ type: "Form", id }],
+      providesTags: (result, error, { _id }) => [{ type: "Form", _id }],
     }),
 
     createForm: builder.mutation({
@@ -33,9 +33,9 @@ export const formApi = createApi({
         method: "PUT",
         body: rest,
       }),
-      invalidatesTags: (result, error, id) => [
+      invalidatesTags: (result, error, { _id }) => [
         { type: "Form", id: "LIST" },
-        { type: "Form", id },
+        { type: "Form", _id },
       ],
     }),
   }),
