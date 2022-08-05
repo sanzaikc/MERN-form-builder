@@ -2,15 +2,15 @@ import mongoose from "mongoose";
 
 const submissionSchema = mongoose.Schema(
   {
-    name: String,
+    submitter: String,
     form: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Form",
       required: true,
     },
-    values: [mongoose.Schema.Types.Mixed],
+    values: { type: Map, of: String },
   },
-  { strict: false }
+  { strict: false, timestamps: true }
 );
 
 export const Submission = mongoose.model("Submission", submissionSchema);
