@@ -40,9 +40,9 @@ export const Navbar = () => {
             </Typography>
 
             <Box display="flex" gap={4}>
-              <Button variant="outlined" onClick={() => navigate("/forms")}>
+              {/* <Button variant="outlined" onClick={() => navigate("/forms")}>
                 Forms
-              </Button>
+              </Button> */}
               {/* <Button
                 variant="outlined"
                 onClick={() => navigate("/submissions")}

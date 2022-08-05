@@ -5,6 +5,7 @@ import { CreateFormScreen } from "./screens/forms/CreateFormScreen";
 import { EditFormScreen } from "./screens/forms/EditFormScreen";
 import { FormListScreen } from "./screens/forms/FormListScreen";
 import { FormSubmissions } from "./screens/forms/submissions/FormSubmissions";
+import { SubmissionDetailScreen } from "./screens/forms/submissions/SubmissionDetailScreen";
 import { SubmitScreen } from "./screens/forms/submissions/SubmitScreen";
 import { NotFound } from "./screens/NotFound";
 
@@ -20,6 +21,10 @@ function App() {
           <Route
             path="/forms/:formId/submissions"
             element={<FormSubmissions />}
+          />
+          <Route
+            path="/submissions/:submissionId"
+            element={<SubmissionDetailScreen />}
           />
           <Route
             path="/submissions/:formId/submit"
