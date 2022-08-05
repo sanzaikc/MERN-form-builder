@@ -31,7 +31,7 @@ export const FormEditField = () => {
           <Typography>Edit Field</Typography>
           <Divider />
           <br />
-          {!formElements[selectedElementIndex] ? (
+          {!inputElement ? (
             <Typography>Select field to edit</Typography>
           ) : (
             <Stack spacing={2}>

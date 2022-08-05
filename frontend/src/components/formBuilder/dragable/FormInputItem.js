@@ -21,8 +21,8 @@ export const FormInputItem = ({ inputField }) => {
     <ListItem
       ref={drag}
       style={{
-        border: "1px solid lightgray",
-        // backgroundColor: "skyblue",
+        borderBottom: "1px solid lightgray",
+        backgroundColor: "#fafafa",
         opacity: isDragging ? 0.5 : 1,
       }}
     >

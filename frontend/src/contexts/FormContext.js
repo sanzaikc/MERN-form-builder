@@ -21,6 +21,7 @@ export const FormProvider = ({ children }) => {
     inputFields.splice(index, 1);
 
     setFormElements([...inputFields]);
+    setSelectedElementIndex(null);
   };
 
   const handleElementUpdate = (elIndex, elementUpdate) => {
