@@ -2,18 +2,33 @@ import React, { useContext } from "react";
 
 import { useDrop } from "react-dnd";
 
-import { Box, Button, Divider, Paper, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Divider,
+  Paper,
+  TextField,
+} from "@mui/material";
 
 import { ItemTypes } from "../../utils/dndItemTypes";
 import { FormTemplate } from "./FormTemplate";
 
 import { FormContext } from "../../contexts/FormContext";
+import { useCreateFormMutation } from "../../redux/services/formService";
+import { useNavigate } from "react-router-dom";
 
 export const FormDropzone = () => {
   const [formName, setFormName] = React.useState("");
 
+  const navigate = useNavigate();
+
+  // context
   const { formElements, setFormElements, handleAddInputField } =
     useContext(FormContext);
+
+  // RTKQuery
+  const [createForm, { isLoading }] = useCreateFormMutation();
 
   //   DND hooks
   const [{ isOver }, drop] = useDrop({
@@ -35,7 +50,16 @@ export const FormDropzone = () => {
       name: formName,
       fields: [...formElements],
     };
-    console.log(formPayload);
+
+    createForm(formPayload)
+      .unwrap()
+      .then((res) => {
+        if (!res) return;
+
+        handleFormReset();
+
+        navigate("/");
+      });
   };
 
   return (
@@ -56,6 +80,9 @@ export const FormDropzone = () => {
               disabled={!formName.length || !formElements.length}
               onClick={handleCreateForm}
             >
+              {isLoading && (
+                <CircularProgress size={16} style={{ marginRight: 4 }} />
+              )}
               Save
             </Button>
             <Button variant="outlined" onClick={handleFormReset}>

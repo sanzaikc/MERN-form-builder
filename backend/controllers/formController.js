@@ -1,10 +1,18 @@
-import { Form } from "../models/form.js";
-import { Submission } from "../models/submission.js";
+import { Form } from "../models/formModel.js";
+// import { Submission } from "../models/submission.js";
 
 export const getAllForms = async (req, res) => {
-  const forms = await Form.find();
+  const forms = await Form.find().sort("-createdAt");
 
   res.status(200).json(forms);
+};
+
+export const getForm = async (req, res) => {
+  const { formId } = req.params;
+
+  const form = Form.findById(formId);
+
+  res.status(200).json(form);
 };
 
 export const addForm = async (req, res) => {
