@@ -27,7 +27,7 @@ export const FormEditField = () => {
   return (
     <>
       <Paper>
-        <Box style={{ padding: 10 }}>
+        <Box padding={2}>
           <Typography>Edit Field</Typography>
           <Divider />
           <br />

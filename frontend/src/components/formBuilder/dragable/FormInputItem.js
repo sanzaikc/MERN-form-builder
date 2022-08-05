@@ -22,7 +22,7 @@ export const FormInputItem = ({ inputField }) => {
       ref={drag}
       style={{
         border: "1px solid lightgray",
-        backgroundColor: "skyblue",
+        // backgroundColor: "skyblue",
         opacity: isDragging ? 0.5 : 1,
       }}
     >

@@ -25,6 +25,11 @@ export const FormDropzone = () => {
   });
 
   //   methods
+  const handleFormReset = () => {
+    setFormElements([]);
+    setFormName("");
+  };
+
   const handleCreateForm = () => {
     const formPayload = {
       name: formName,
@@ -42,17 +47,18 @@ export const FormDropzone = () => {
             placeholder="Enter form name"
             size="small"
             style={{ width: "50%" }}
+            value={formName}
             onChange={(e) => setFormName(e.target.value)}
           />
           <Box display="flex" justifyContent="space-between" gap={2}>
             <Button
               variant="contained"
-              disabled={!formElements.length}
+              disabled={!formName.length || !formElements.length}
               onClick={handleCreateForm}
             >
               Save
             </Button>
-            <Button variant="outlined" onClick={() => setFormElements([])}>
+            <Button variant="outlined" onClick={handleFormReset}>
               Reset
             </Button>
           </Box>
