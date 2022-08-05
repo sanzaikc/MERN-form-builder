@@ -7,13 +7,19 @@ import { Outlet } from "react-router-dom";
 
 export const AppLayout = () => {
   return (
-    <>
+    <Box
+      style={{
+        height: "100vh",
+        width: "100%",
+        backgroundColor: "#fafafa",
+      }}
+    >
       <Navbar />
       <Container maxWidth="xl">
         <Box padding={3}>
           <Outlet />
         </Box>
       </Container>
-    </>
+    </Box>
   );
 };
