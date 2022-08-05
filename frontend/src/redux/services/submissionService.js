@@ -17,6 +17,18 @@ export const submissionApi = createApi({
       },
     }),
 
+    getSubmissionByForm: builder.query({
+      query: (formId) => `/submissions/form/${formId}`,
+      providesTags: (result) => {
+        return result
+          ? [
+              ...result.map(({ id }) => ({ type: "Submission", id })),
+              { type: "Submission", id: "FORM" },
+            ]
+          : [{ type: "Submission", id: "FORM" }];
+      },
+    }),
+
     getSubmissionDetail: builder.query({
       query: (submissionId) => `/submissions/${submissionId}`,
       providesTags: (result, error, { _id }) => [{ type: "Submission", _id }],
@@ -46,4 +58,5 @@ export const {
   useCreateSubmissionMutation,
   useLazyGetSubmissionDetailQuery,
   useUpdateSubmissionMutation,
+  useLazyGetSubmissionByFormQuery,
 } = submissionApi;
