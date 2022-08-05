@@ -32,7 +32,9 @@ export const FormEditField = () => {
           <Divider />
           <br />
           {!inputElement ? (
-            <Typography>Select field to edit</Typography>
+            <Typography variant="subtitle2">
+              * Select a field to edit *
+            </Typography>
           ) : (
             <Stack spacing={2}>
               <BaseTextField

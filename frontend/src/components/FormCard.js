@@ -8,6 +8,7 @@ import {
   Card,
   CardActions,
   CardContent,
+  Divider,
   Grid,
   Typography,
 } from "@mui/material";
@@ -34,15 +35,19 @@ export const FormCard = ({ form }) => {
               }}
             />
             <Typography variant="body1">{form.name}</Typography>
+            <Typography variant="subtitle2">{`${form.fields.length} fields`}</Typography>
           </Box>
         </CardContent>
+        <Divider />
         <CardActions>
-          <Button
-            size="small"
-            onClick={() => navigate(`/forms/${form._id}/edit`)}
-          >
-            Edit
-          </Button>
+          <Box display="flex" justifyContent="flex-end" flexGrow={1}>
+            <Button
+              size="small"
+              onClick={() => navigate(`/forms/${form._id}/edit`)}
+            >
+              Edit
+            </Button>
+          </Box>
           {/* <Button size="small">View</Button> */}
         </CardActions>
       </Card>

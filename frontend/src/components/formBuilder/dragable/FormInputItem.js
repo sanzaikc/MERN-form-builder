@@ -24,6 +24,7 @@ export const FormInputItem = ({ inputField }) => {
         borderBottom: "1px solid lightgray",
         backgroundColor: "#fafafa",
         opacity: isDragging ? 0.5 : 1,
+        cursor: isDragging ? "grabbing" : "grab",
       }}
     >
       <ListItemText>
