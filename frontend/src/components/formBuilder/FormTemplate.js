@@ -21,7 +21,9 @@ export const FormTemplate = () => {
           <Typography>Drap & Drop Input fields here.</Typography>
         </Box>
       ) : (
-        formElements.map((item, i) => <FormField index={i} item={item} />)
+        formElements.map((item, i) => (
+          <FormField key={i} index={i} item={item} />
+        ))
       )}
     </Stack>
   );
