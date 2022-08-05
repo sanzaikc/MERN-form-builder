@@ -51,8 +51,8 @@ export const FormDropzone = () => {
 
   //   methods
   const handleFormReset = () => {
-    setFormElements([]);
-    setFormName("");
+    setFormElements(!formDetail ? [] : formDetail.fields);
+    setFormName(!formDetail ? "" : formDetail.name);
   };
 
   const handleCreateForm = () => {

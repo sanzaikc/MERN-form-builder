@@ -31,7 +31,11 @@ export const Navbar = () => {
               justifyContent: "space-between",
             }}
           >
-            <Typography variant="h5" sx={{ fontWeight: 800 }}>
+            <Typography
+              variant="h5"
+              sx={{ fontWeight: 800 }}
+              onClick={() => navigate("/")}
+            >
               FormBuilder
             </Typography>
 
