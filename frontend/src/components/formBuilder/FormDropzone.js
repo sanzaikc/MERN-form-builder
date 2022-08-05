@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { useDrop } from "react-dnd";
 
-import { Box, Button, Paper } from "@mui/material";
+import { Box, Button, Divider, Paper, TextField } from "@mui/material";
 
 import { ItemTypes } from "../../utils/dndItemTypes";
 import { FormTemplate } from "./FormTemplate";
@@ -10,6 +10,8 @@ import { FormTemplate } from "./FormTemplate";
 import { FormContext } from "../../contexts/FormContext";
 
 export const FormDropzone = () => {
+  const [formName, setFormName] = React.useState("");
+
   const { formElements, setFormElements, handleAddInputField } =
     useContext(FormContext);
 
@@ -24,54 +26,51 @@ export const FormDropzone = () => {
 
   //   methods
   const handleCreateForm = () => {
-    const payload = {
-      name: "Test Form",
+    const formPayload = {
+      name: formName,
       fields: [...formElements],
     };
-    console.log(payload);
+    console.log(formPayload);
   };
 
   return (
-    <>
-      <Paper>
-        <Box
-          ref={drop}
-          paddingX={3}
-          paddingY={2}
-          style={{
-            border: "1px solid gray",
-            borderStyle: isOver ? "dashed" : "",
-          }}
-        >
-          <Box
-            display="flex"
-            justifyContent="flex-end"
-            gap={2}
-            marginBottom={2}
-          >
+    <Paper>
+      <Box paddingX={3} paddingY={2}>
+        <Box display="flex" justifyContent="space-between" alignItems="end">
+          <TextField
+            // variant="filled"
+            placeholder="Enter form name"
+            size="small"
+            style={{ width: "50%" }}
+            onChange={(e) => setFormName(e.target.value)}
+          />
+          <Box display="flex" justifyContent="space-between" gap={2}>
             <Button
-              size="small"
               variant="contained"
               disabled={!formElements.length}
               onClick={handleCreateForm}
             >
               Save
             </Button>
-            <Button
-              size="small"
-              variant="outlined"
-              onClick={() => setFormElements([])}
-            >
+            <Button variant="outlined" onClick={() => setFormElements([])}>
               Reset
             </Button>
           </Box>
-
-          <FormTemplate />
         </Box>
-      </Paper>
-      <Box padding={3}>
-        <pre>{JSON.stringify({ formElements }, null, 2)}</pre>
       </Box>
-    </>
+
+      <Divider />
+
+      <Box
+        ref={drop}
+        padding={3}
+        style={{
+          border: "1px solid gray",
+          borderStyle: isOver ? "dashed" : "",
+        }}
+      >
+        <FormTemplate />
+      </Box>
+    </Paper>
   );
 };

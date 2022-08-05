@@ -4,7 +4,7 @@ import { useDrag } from "react-dnd";
 
 import { Typography, ListItem, ListItemText } from "@mui/material";
 
-import { ItemTypes } from "../../utils/dndItemTypes";
+import { ItemTypes } from "../../../utils/dndItemTypes";
 
 export const FormInputItem = ({ inputField }) => {
   const [{ isDragging }, drag] = useDrag({
