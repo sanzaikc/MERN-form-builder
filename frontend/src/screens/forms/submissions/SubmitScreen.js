@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import {
   Box,
@@ -22,6 +22,8 @@ export const SubmitScreen = () => {
 
   const { formId } = useParams();
 
+  const navigate = useNavigate();
+
   // RTKQuery
   const [getFormDetail, { data: formDetail, error, isLoading: gettingDetail }] =
     useLazyGetFormDetailQuery();
@@ -39,7 +41,11 @@ export const SubmitScreen = () => {
       values: submission,
     };
 
-    createSubmission(payload).unwrap();
+    createSubmission(payload)
+      .unwrap()
+      .then((res) => {
+        navigate("/");
+      });
   };
 
   React.useEffect(() => {

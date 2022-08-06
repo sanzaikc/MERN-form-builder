@@ -10,6 +10,10 @@ const inputFields = [
     type: "text",
   },
   {
+    label: "Number",
+    type: "number",
+  },
+  {
     label: "Email",
     type: "email",
   },

@@ -5,6 +5,7 @@ export const generateFieldIcon = (fieldType, props = {}) => {
     text: "TextFormat",
     email: "AlternateEmail",
     tel: "Phone",
+    number: "Numbers",
   };
 
   const Icon = MuiIcons[fieldTypeRef[fieldType]];
