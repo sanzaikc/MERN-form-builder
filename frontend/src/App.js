@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { AppLayout } from "./layouts/AppLayout";
+import { FormLayout } from "./layouts/FormLayout";
 import { CreateFormScreen } from "./screens/forms/CreateFormScreen";
 import { EditFormScreen } from "./screens/forms/EditFormScreen";
 import { FormListScreen } from "./screens/forms/FormListScreen";
@@ -22,14 +23,17 @@ function App() {
             path="/forms/:formId/submissions"
             element={<FormSubmissions />}
           />
-          <Route
-            path="/submissions/:submissionId"
-            element={<SubmissionDetailScreen />}
-          />
-          <Route
-            path="/submissions/:formId/submit"
-            element={<SubmitScreen />}
-          />
+
+          <Route element={<FormLayout />}>
+            <Route
+              path="/submissions/:submissionId"
+              element={<SubmissionDetailScreen />}
+            />
+            <Route
+              path="/submissions/:formId/submit"
+              element={<SubmitScreen />}
+            />
+          </Route>
           <Route path="/*" element={<NotFound />} />
         </Route>
       </Routes>
