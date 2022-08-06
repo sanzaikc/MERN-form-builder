@@ -10,7 +10,7 @@ export const FormTemplate = () => {
   const { formElements } = useContext(FormContext);
 
   return (
-    <Stack spacing={3}>
+    <Stack spacing={1.5}>
       {!formElements?.length ? (
         <Box
           display="flex"
