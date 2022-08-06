@@ -40,8 +40,10 @@ export const SubmissionDetailScreen = () => {
           <Box key={index} paddingY={2}>
             {generateField(field.type, {
               fullWidth: true,
-              disabled: true,
               value: submissionDetail.values[field.label] ?? "",
+              InputProps: {
+                readOnly: true,
+              },
               ...field,
             })}
           </Box>
