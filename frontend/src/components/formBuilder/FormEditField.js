@@ -94,6 +94,10 @@ export const FormEditField = () => {
                   />
                 </Box>
               )}
+
+              {/* Dropdown  */}
+              {inputElement.type === "dropdown" &&
+                inputElement.options.map((e) => JSON.stringify(e))}
             </Stack>
           )}
         </Box>

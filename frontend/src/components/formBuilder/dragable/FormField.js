@@ -29,8 +29,9 @@ export const FormField = ({ editable = false, index, item }) => {
       {generateField(item.type, {
         disabled: !editable,
         fullWidth: true,
-        label: item.label,
-        required: item.required ?? null,
+        // label: item.label,
+        // required: item.required ?? null,
+        ...item,
       })}
       {!editable && (
         <Box display="flex" alignItems="center">
