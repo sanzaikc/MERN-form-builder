@@ -20,7 +20,7 @@ export const getSubmissionsByForm = async (req, res) => {
 export const getSubmissionDetail = async (req, res) => {
   const { submissionId } = req.params;
 
-  const form = await Submission.findById(submissionId);
+  const form = await Submission.findById(submissionId).populate("form");
 
   res.status(200).json(form);
 };
