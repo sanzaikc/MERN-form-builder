@@ -24,9 +24,8 @@ export const FormCard = ({ form }) => {
         style={{
           cursor: "pointer",
         }}
-        onClick={() => navigate(`/forms/${form._id}/submissions`)}
       >
-        <CardContent>
+        <CardContent onClick={() => navigate(`/forms/${form._id}/submissions`)}>
           <Box display="flex" flexDirection="column" alignItems="center">
             <FeedIcon
               style={{

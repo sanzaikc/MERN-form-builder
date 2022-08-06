@@ -151,17 +151,20 @@ export const FormDropzone = () => {
       >
         <FormTemplate />
       </Box>
-
-      <Divider />
-      <Box padding={3}>
-        <a
-          href={`/submissions/${formId}/submit`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open Submit Link
-        </a>
-      </Box>
+      {editMode && (
+        <>
+          <Divider />
+          <Box padding={3}>
+            <a
+              href={`/submissions/${formId}/submit`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open Submit Link
+            </a>
+          </Box>
+        </>
+      )}
     </Paper>
   );
 };
