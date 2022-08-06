@@ -27,13 +27,13 @@ export const FormSubmissions = () => {
 
   return (
     <>
-      {/* <Typography variant="h6">
-        {formSubmissions && formSubmissions[0]?.form?.name}
-      </Typography> */}
       <Box display="flex" justifyContent="center">
-        <Typography variant="h5">
-          {`${formSubmissions && formSubmissions[0]?.form?.name} /`} Submissions
-        </Typography>
+        {formSubmissions && !!formSubmissions.length && (
+          <Typography variant="h5">
+            {`${formSubmissions[0]?.form?.name}/`}
+          </Typography>
+        )}
+        <Typography variant="h5">Submissions</Typography>
       </Box>
       <br />
       <Grid container gap={4}>

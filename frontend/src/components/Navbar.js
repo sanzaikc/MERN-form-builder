@@ -33,7 +33,7 @@ export const Navbar = () => {
           >
             <Typography
               variant="h5"
-              sx={{ fontWeight: 800 }}
+              sx={{ fontWeight: 800, cursor: "pointer" }}
               onClick={() => navigate("/")}
             >
               FormBuilder
