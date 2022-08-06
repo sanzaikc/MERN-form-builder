@@ -8,10 +8,10 @@ export const FormProvider = ({ children }) => {
 
   //   methods
   const handleAddInputField = (inputField) => {
-    // const alreadyInForm = !!formElements.find(
-    //   (el) => el.type === inputField.type
-    // );
-    // if (alreadyInForm) return;
+    const alreadyInForm = !!formElements.find(
+      (el) => el.label === inputField.label
+    );
+    if (alreadyInForm) return;
 
     setFormElements((prevState) => [...prevState, { ...inputField }]);
   };
