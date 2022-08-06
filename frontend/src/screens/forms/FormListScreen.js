@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 import { FormCard } from "../../components/FormCard";
 
@@ -14,10 +14,16 @@ export const FormListScreen = () => {
   return !formList.length ? (
     <div>No Forms Yet!</div>
   ) : (
-    <Grid container gap={4}>
-      {formList.map((form) => (
-        <FormCard key={form._id} form={form} />
-      ))}
-    </Grid>
+    <>
+      <Box display="flex" justifyContent="center">
+        <Typography variant="h5">All Forms</Typography>
+      </Box>
+      <br />
+      <Grid container gap={4}>
+        {formList.map((form) => (
+          <FormCard key={form._id} form={form} />
+        ))}
+      </Grid>
+    </>
   );
 };

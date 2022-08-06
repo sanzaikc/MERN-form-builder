@@ -2,7 +2,7 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
-import { Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 import { SubmissionCard } from "../../../components/SubmissionCard";
 
@@ -27,9 +27,14 @@ export const FormSubmissions = () => {
 
   return (
     <>
-      <Typography variant="h6">
+      {/* <Typography variant="h6">
         {formSubmissions && formSubmissions[0]?.form?.name}
-      </Typography>
+      </Typography> */}
+      <Box display="flex" justifyContent="center">
+        <Typography variant="h5">
+          {`${formSubmissions && formSubmissions[0]?.form?.name} /`} Submissions
+        </Typography>
+      </Box>
       <br />
       <Grid container gap={4}>
         {!formSubmissions?.length ? (
