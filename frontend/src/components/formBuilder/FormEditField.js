@@ -70,9 +70,9 @@ export const FormEditField = () => {
           )}
         </Box>
       </Paper>
-      <Box padding={3}>
+      {/* <Box padding={3}>
         <pre>{JSON.stringify({ formElements }, null, 2)}</pre>
-      </Box>
+      </Box> */}
     </>
   );
 };
