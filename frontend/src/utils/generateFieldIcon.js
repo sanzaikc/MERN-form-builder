@@ -6,6 +6,7 @@ export const generateFieldIcon = (fieldType, props = {}) => {
     email: "AlternateEmail",
     tel: "Phone",
     number: "Numbers",
+    dropdown: "ArrowDropDown",
   };
 
   const Icon = MuiIcons[fieldTypeRef[fieldType]];

@@ -21,6 +21,14 @@ const inputFields = [
     label: "Tel",
     type: "tel",
   },
+  {
+    label: "Dropdown",
+    type: "dropdown",
+    options: [
+      { label: "Option 1", value: 1 },
+      { label: "Option 2", value: 2 },
+    ],
+  },
 ];
 
 export const FormInputList = () => {

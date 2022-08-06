@@ -14,6 +14,7 @@ import {
 import { BaseTextField } from "../formInput/BaseTextField";
 
 import { FormContext } from "../../contexts/FormContext";
+import { FormNumberField } from "../formInput";
 
 export const FormEditField = () => {
   const { formElements, selectedElementIndex, handleElementUpdate } =
@@ -49,6 +50,7 @@ export const FormEditField = () => {
                 }
               />
 
+              {/* Required toggle  */}
               <FormGroup>
                 <FormControlLabel
                   label="Required"
@@ -66,13 +68,39 @@ export const FormEditField = () => {
                   }
                 />
               </FormGroup>
+
+              {/* Number Input  */}
+              {inputElement.type === "number" && (
+                <Box display="flex" gap={4}>
+                  <FormNumberField
+                    label="Min"
+                    value={inputElement?.min}
+                    onChange={(e) =>
+                      handleElementUpdate(selectedElementIndex, {
+                        ...inputElement,
+                        min: e.target.value,
+                      })
+                    }
+                  />
+                  <FormNumberField
+                    label="Max"
+                    value={inputElement?.max}
+                    onChange={(e) =>
+                      handleElementUpdate(selectedElementIndex, {
+                        ...inputElement,
+                        max: e.target.value,
+                      })
+                    }
+                  />
+                </Box>
+              )}
             </Stack>
           )}
         </Box>
       </Paper>
-      {/* <Box padding={3}>
+      <Box padding={3}>
         <pre>{JSON.stringify({ formElements }, null, 2)}</pre>
-      </Box> */}
+      </Box>
     </>
   );
 };

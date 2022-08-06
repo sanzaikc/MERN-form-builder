@@ -6,6 +6,7 @@ export const generateField = (type, props = {}) => {
     email: "FormEmailField",
     tel: "FormPhoneField",
     number: "FormNumberField",
+    dropdown: "FormSelectField",
   };
 
   const Field = FormField[formFieldRef[type]];
