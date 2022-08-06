@@ -83,6 +83,7 @@ export const SubmitScreen = () => {
         <Divider />
         <Box display="flex" justifyContent="space-between" padding={3}>
           <TextField
+            label="Submitter"
             value={submitter}
             placeholder="Your Name"
             size="small"

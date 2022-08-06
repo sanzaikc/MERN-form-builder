@@ -18,7 +18,7 @@ const inputFields = [
     type: "email",
   },
   {
-    label: "Phone",
+    label: "Tel",
     type: "tel",
   },
 ];

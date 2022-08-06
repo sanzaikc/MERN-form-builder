@@ -26,8 +26,11 @@ export const SubmissionCard = ({ submission }) => {
             }}
           />
           <Box>
-            <Typography variant="body2">Submitted by:</Typography>
-            <Typography variant="body1">{submission.submitter}</Typography>
+            <Typography variant="subtitle2">Submitted by:</Typography>
+            <Typography variant="subtitle1">{submission.submitter}</Typography>
+            <Typography variant="caption">
+              {new Date(submission.createdAt).toLocaleDateString()}
+            </Typography>
           </Box>
         </Box>
       </CardContent>
