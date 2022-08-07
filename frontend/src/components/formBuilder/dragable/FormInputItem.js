@@ -23,9 +23,9 @@ export const FormInputItem = ({ inputField }) => {
       ref={drag}
       display="flex"
       alignItems="center"
-      gap={4}
+      gap={2}
       style={{
-        padding: "15px 20px",
+        padding: "10px 20px",
         border: "1px solid lightgray",
         borderStyle: "dashed",
         backgroundColor: "#fafafa",
@@ -33,8 +33,8 @@ export const FormInputItem = ({ inputField }) => {
         cursor: "move",
       }}
     >
-      {generateFieldIcon(inputField.type)}
-      <Typography>{inputField.label}</Typography>
+      {generateFieldIcon(inputField.type, { fontSize: "small" })}
+      <Typography variant="subtitle1">{inputField.label}</Typography>
     </Box>
   );
 };
