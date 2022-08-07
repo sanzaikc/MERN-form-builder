@@ -12,6 +12,7 @@ export const FormRadioGroupField = ({
   options = [],
   label = "",
   required = false,
+  disabled = false,
   ...props
 }) => {
   return (
@@ -27,6 +28,7 @@ export const FormRadioGroupField = ({
       >
         {options.map((el, index) => (
           <FormControlLabel
+            disabled={disabled}
             key={index}
             value={el.value}
             control={<Radio />}
