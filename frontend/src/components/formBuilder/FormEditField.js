@@ -26,6 +26,8 @@ export const FormEditField = () => {
     [formElements, selectedElementIndex]
   );
 
+  const hasEditableOptionTypes = ["dropdown", "radioGroup", "checkbox"];
+
   return (
     <>
       <Paper>
@@ -97,8 +99,9 @@ export const FormEditField = () => {
               )}
 
               {/* Dropdown  */}
-              {(inputElement.type === "dropdown" ||
-                inputElement.type === "radioGroup") && <ManageFieldOption />}
+              {hasEditableOptionTypes.includes(inputElement.type) && (
+                <ManageFieldOption />
+              )}
             </Stack>
           )}
         </Box>
