@@ -29,7 +29,6 @@ export const FormEditField = () => {
   );
 
   // dropdown methods
-
   const handleInputElementDropdownOptionUpdate = (index, option) => {
     const updatedOptions = inputElement?.options.map((el, i) =>
       index === i ? option : el
@@ -50,8 +49,6 @@ export const FormEditField = () => {
       ...inputElement,
       options: filteredOptions,
     });
-
-    console.log(filteredOptions);
   };
 
   const handleAddDropdownOption = () => {
