@@ -41,6 +41,10 @@ const inputFields = [
     label: "Website",
     type: "website",
   },
+  {
+    label: "Date",
+    type: "date",
+  },
 ];
 
 export const FormInputList = () => {
