@@ -16,13 +16,13 @@ export const FormBuilder = () => {
     <DndProvider backend={HTML5Backend}>
       <FormProvider>
         <Grid container spacing={2}>
-          <Grid item md={2}>
+          <Grid item md={2.5}>
             <FormInputList />
           </Grid>
           <Grid item md={6}>
             <FormDropzone />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={3.5}>
             <FormEditField />
           </Grid>
         </Grid>
