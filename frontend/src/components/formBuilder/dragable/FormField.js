@@ -19,6 +19,8 @@ export const FormField = ({ editable = false, index, item }) => {
     <Box
       style={{
         display: "flex",
+        alignItems: "start",
+        justifyContent: "space-between",
         border: "1px solid lightgray",
         borderStyle: "dashed",
         padding: 16,
@@ -29,8 +31,6 @@ export const FormField = ({ editable = false, index, item }) => {
       {generateField(item.type, {
         disabled: !editable,
         fullWidth: true,
-        // label: item.label,
-        // required: item.required ?? null,
         ...item,
       })}
       {!editable && (

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { FormControl, FormLabel, MenuItem, Select } from "@mui/material";
 
 export const FormSelectField = ({
   options = [],
@@ -10,9 +10,9 @@ export const FormSelectField = ({
 }) => {
   return (
     <FormControl fullWidth>
-      <InputLabel id="demo-simple-select-label" required={required}>
+      <FormLabel id="demo-radio-buttons-group-label" required={required}>
         {label}
-      </InputLabel>
+      </FormLabel>
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
