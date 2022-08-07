@@ -18,7 +18,7 @@ export const FormSelectField = ({
         id="demo-simple-select"
         size="small"
         label={label}
-        value={options[0].value}
+        value={options[0]?.value ?? ""}
         {...props}
       >
         {options.map((el, index) => (
