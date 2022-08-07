@@ -98,9 +98,37 @@ export const FormEditField = () => {
                 </Box>
               )}
 
-              {/* Dropdown  */}
+              {/* Editable Options */}
               {hasEditableOptionTypes.includes(inputElement.type) && (
                 <ManageFieldOption />
+              )}
+
+              {/* Min/Max Date  */}
+              {inputElement.type === "date" && (
+                <Box display="flex" gap={4}>
+                  <BaseTextField
+                    label="Min"
+                    type="date"
+                    value={inputElement?.max ?? new Date()}
+                    onChange={(e) =>
+                      handleElementUpdate(selectedElementIndex, {
+                        ...inputElement,
+                        min: e.target.value,
+                      })
+                    }
+                  />
+                  <BaseTextField
+                    label="Max"
+                    type="date"
+                    value={inputElement?.max ?? new Date()}
+                    onChange={(e) =>
+                      handleElementUpdate(selectedElementIndex, {
+                        ...inputElement,
+                        max: e.target.value,
+                      })
+                    }
+                  />
+                </Box>
               )}
             </Stack>
           )}
