@@ -8,16 +8,10 @@ import {
   RadioGroup,
 } from "@mui/material";
 
-export const FormRadioGroupField = ({
-  options = [],
-  label = "",
-  required = false,
-  disabled = false,
-  ...props
-}) => {
+export const FormRadioGroupField = ({ options = [], label = "", ...props }) => {
   return (
-    <FormControl>
-      <FormLabel id="demo-radio-buttons-group-label" required={required}>
+    <FormControl fullWidth={props.fullWidth} required={props.required}>
+      <FormLabel id="demo-radio-buttons-group-label" required={props.required}>
         {label}
       </FormLabel>
       <RadioGroup
@@ -28,7 +22,7 @@ export const FormRadioGroupField = ({
       >
         {options.map((el, index) => (
           <FormControlLabel
-            disabled={disabled}
+            disabled={props.disabled}
             key={index}
             value={el.value}
             control={<Radio />}

@@ -5,18 +5,5 @@ import { BaseTextField } from "./BaseTextField";
 // import TextFieldsIcon from "@mui/icons-material/TextFields";
 
 export const FormTextField = (props) => {
-  return (
-    <BaseTextField
-      label="Text Field"
-      type="tel"
-      // InputProps={{
-      //   startAdornment: (
-      //     <InputAdornment position="start">
-      //       <TextFieldsIcon />
-      //     </InputAdornment>
-      //   ),
-      // }}
-      {...props}
-    />
-  );
+  return <BaseTextField {...props} />;
 };

@@ -4,6 +4,7 @@ import { FormEmailField } from "./FormEmailField";
 import { FormNumberField } from "./FormNumberField";
 import { FormSelectField } from "./FormSelectField";
 import { FormRadioGroupField } from "./FormRadioGroupField";
+import { FormWebsiteField } from "./FormWebsiteField";
 
 export {
   FormTextField,
@@ -12,4 +13,5 @@ export {
   FormNumberField,
   FormSelectField,
   FormRadioGroupField,
+  FormWebsiteField,
 };

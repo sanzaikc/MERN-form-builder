@@ -2,15 +2,10 @@ import React from "react";
 
 import { FormControl, FormLabel, MenuItem, Select } from "@mui/material";
 
-export const FormSelectField = ({
-  options = [],
-  label = "",
-  required = false,
-  ...props
-}) => {
+export const FormSelectField = ({ options = [], label = "", ...props }) => {
   return (
-    <FormControl fullWidth>
-      <FormLabel id="demo-radio-buttons-group-label" required={required}>
+    <FormControl fullWidth={props.fullWidth} required={props.required}>
+      <FormLabel id="demo-radio-buttons-group-label" required={props.required}>
         {label}
       </FormLabel>
       <Select

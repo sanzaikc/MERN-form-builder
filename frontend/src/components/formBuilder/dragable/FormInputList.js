@@ -37,6 +37,10 @@ const inputFields = [
       { label: "Option 2", value: 2 },
     ],
   },
+  {
+    label: "Website",
+    type: "website",
+  },
 ];
 
 export const FormInputList = () => {

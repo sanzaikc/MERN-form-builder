@@ -8,6 +8,7 @@ export const generateField = (type, props = {}) => {
     number: "FormNumberField",
     dropdown: "FormSelectField",
     radioGroup: "FormRadioGroupField",
+    website: "FormWebsiteField",
   };
 
   const Field = FormField[formFieldRef[type]];

@@ -8,6 +8,7 @@ export const generateFieldIcon = (fieldType, props = {}) => {
     number: "Numbers",
     dropdown: "ArrowDropDown",
     radioGroup: "RadioButtonChecked",
+    website: "Language",
   };
 
   const Icon = MuiIcons[fieldTypeRef[fieldType]];
