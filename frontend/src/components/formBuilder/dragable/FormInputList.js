@@ -30,7 +30,7 @@ const inputFields = [
     ],
   },
   {
-    label: "Multiple Choices",
+    label: "Multiple Choice",
     type: "radioGroup",
     options: [
       { label: "Option 1", value: 1 },
