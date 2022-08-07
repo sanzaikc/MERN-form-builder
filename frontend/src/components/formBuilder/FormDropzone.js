@@ -11,6 +11,7 @@ import {
   Paper,
   TextField,
 } from "@mui/material";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
 import { ItemTypes } from "../../utils/dndItemTypes";
 import { FormTemplate } from "./FormTemplate";
@@ -131,8 +132,12 @@ export const FormDropzone = () => {
               )}
               {editMode ? "Update" : "Save"}
             </Button>
-            <Button variant="outlined" onClick={handleFormReset}>
-              Reset
+            <Button
+              variant="outlined"
+              title="Reset Form"
+              onClick={handleFormReset}
+            >
+              <RestartAltIcon />
             </Button>
           </Box>
         </Box>
