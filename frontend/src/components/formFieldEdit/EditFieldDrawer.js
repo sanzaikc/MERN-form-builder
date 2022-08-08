@@ -26,6 +26,7 @@ export const EditFieldDrawer = () => {
 
   React.useEffect(() => {
     if (inputElement) setOpen(true);
+    else setOpen(false);
   }, [inputElement]);
 
   return (

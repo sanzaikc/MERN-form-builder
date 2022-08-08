@@ -94,6 +94,7 @@ export const FormDropzone = () => {
     };
 
     updateForm(updatePayload);
+    handleFormReset();
   };
 
   React.useEffect(() => {

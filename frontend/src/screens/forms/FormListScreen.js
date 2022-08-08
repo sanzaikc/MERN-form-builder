@@ -15,9 +15,7 @@ export const FormListScreen = () => {
     <div>No Forms Yet!</div>
   ) : (
     <>
-      <Box display="flex" justifyContent="center">
-        <Typography variant="h5">All Forms</Typography>
-      </Box>
+      <Typography variant="h5">All Forms</Typography>
       <br />
       <Grid container gap={4}>
         {formList.map((form) => (
