@@ -5,13 +5,15 @@ import { Submission } from "../models/submissionModal.js";
 
 const dynamicSchema = new mongoose.Schema(
   {
+    submitter: String,
     form: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Form",
       required: true,
     },
+    values: { type: Map, of: String },
   },
-  { strict: false, timestamps: true }
+  { timestamps: true }
 );
 
 const getModelName = (name) => name.replace(/\s/g, "");

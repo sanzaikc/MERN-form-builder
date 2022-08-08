@@ -34,7 +34,7 @@ export const FormCard = ({ form }) => {
           />
           <Typography variant="body1">{form.name}</Typography>
           <Typography variant="subtitle2">{`${form.fields.length} fields`}</Typography>
-          <Typography variant="subtitle2">{`${form.submissionCount} submissions`}</Typography>
+          {/* <Typography variant="subtitle2">{`${form.submissionCount} submissions`}</Typography> */}
         </Box>
       </CardContent>
       <Divider />
@@ -47,7 +47,7 @@ export const FormCard = ({ form }) => {
               target="_blank"
               rel="noreferrer"
             >
-              Link
+              Submit Link
             </a>
           </Button>
           <Button
