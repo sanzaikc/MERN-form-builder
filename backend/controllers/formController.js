@@ -1,9 +1,6 @@
 import { Form } from "../models/formModel.js";
-// import { Submission } from "../models/submission.js";
 
 export const getAllForms = async (req, res) => {
-  // const forms = await Form.find().sort("-createdAt");
-
   const forms = await Form.aggregate([
     {
       $lookup: {
