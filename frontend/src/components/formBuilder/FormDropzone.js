@@ -111,40 +111,49 @@ export const FormDropzone = () => {
 
   return (
     <Paper>
-      <Box paddingX={3} paddingY={2}>
-        <Box display="flex" justifyContent="space-between" alignItems="end">
-          <TextField
-            placeholder="Enter form name"
-            size="small"
-            style={{ width: "50%" }}
-            value={formName}
-            onChange={(e) => setFormName(e.target.value)}
-          />
-          <Box display="flex" justifyContent="space-between" gap={2}>
-            <Button
-              variant="contained"
-              disabled={
-                !formName.length || !formElements.length || creatingForm
-              }
-              onClick={editMode ? handleEditForm : handleCreateForm}
-            >
-              {(creatingForm || updatingForm) && (
-                <CircularProgress size={16} style={{ marginRight: 4 }} />
-              )}
-              {editMode ? "Update" : "Save"}
-            </Button>
-            <Button
-              variant="outlined"
-              title="Reset Form"
-              onClick={handleFormReset}
-            >
-              <RestartAltIcon />
-            </Button>
+      <Box
+        style={{
+          position: "sticky",
+          top: 0,
+          opacity: 1,
+          backgroundColor: "white",
+          zIndex: "10",
+        }}
+      >
+        <Box paddingX={3} paddingY={2}>
+          <Box display="flex" justifyContent="space-between" alignItems="end">
+            <TextField
+              placeholder="Enter form name"
+              size="small"
+              style={{ width: "50%" }}
+              value={formName}
+              onChange={(e) => setFormName(e.target.value)}
+            />
+            <Box display="flex" justifyContent="space-between" gap={2}>
+              <Button
+                variant="contained"
+                disabled={
+                  !formName.length || !formElements.length || creatingForm
+                }
+                onClick={editMode ? handleEditForm : handleCreateForm}
+              >
+                {(creatingForm || updatingForm) && (
+                  <CircularProgress size={16} style={{ marginRight: 4 }} />
+                )}
+                {editMode ? "Update" : "Save"}
+              </Button>
+              <Button
+                variant="outlined"
+                title="Reset Form"
+                onClick={handleFormReset}
+              >
+                <RestartAltIcon />
+              </Button>
+            </Box>
           </Box>
         </Box>
+        <Divider />
       </Box>
-
-      <Divider />
 
       <Box
         ref={drop}

@@ -27,7 +27,7 @@ export const FormSubmissions = () => {
 
   return (
     <>
-      <Box display="flex" justifyContent="center">
+      <Box display="flex">
         {formSubmissions && !!formSubmissions.length && (
           <Typography variant="h5">
             {`${formSubmissions[0]?.form?.name}/`}
@@ -36,12 +36,12 @@ export const FormSubmissions = () => {
         <Typography variant="h5">Submissions</Typography>
       </Box>
       <br />
-      <Grid container gap={4}>
+      <Grid container gap={3}>
         {!formSubmissions?.length ? (
           <div>No submissions yet</div>
         ) : (
           formSubmissions?.map((submission, index) => (
-            <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
+            <Grid key={index} item xs={12} sm={6} md={4} lg={2.8}>
               <SubmissionCard submission={submission} />
             </Grid>
           ))
