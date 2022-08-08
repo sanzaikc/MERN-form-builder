@@ -1,10 +1,32 @@
-import { Drawer } from "@mui/material";
 import React from "react";
 
-export const EditFieldDrawer = () => {
-  const drawerWidth = 240;
+import { Box, Divider, Drawer, IconButton, Typography } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
-  const [open, setOpen] = React.useState(true);
+import { FormContext } from "../../contexts/FormContext";
+import { FormEditField } from "../formBuilder/FormEditField";
+
+const drawerWidth = 400;
+
+export const EditFieldDrawer = () => {
+  const [open, setOpen] = React.useState(false);
+
+  const { selectedElementIndex, setSelectedElementIndex, formElements } =
+    React.useContext(FormContext);
+
+  const inputElement = React.useMemo(
+    () => formElements[selectedElementIndex],
+    [formElements, selectedElementIndex]
+  );
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedElementIndex(null);
+  };
+
+  React.useEffect(() => {
+    if (inputElement) setOpen(true);
+  }, [inputElement]);
 
   return (
     <Drawer
@@ -20,6 +42,22 @@ export const EditFieldDrawer = () => {
       anchor="left"
       open={open}
     >
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="space-between"
+        paddingLeft={4}
+        paddingY={1}
+      >
+        <Typography variant="h6">Edit Field</Typography>
+        <IconButton onClick={handleClose}>
+          <CloseIcon />
+        </IconButton>
+      </Box>
+      <Divider />
+      <Box paddingX={2} paddingY={1}>
+        <FormEditField />
+      </Box>
     </Drawer>
   );
 };

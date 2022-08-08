@@ -15,7 +15,7 @@ export const AppLayout = () => {
       }}
     >
       <Navbar />
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Box padding={3}>
           <Outlet />
         </Box>

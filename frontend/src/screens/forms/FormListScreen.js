@@ -21,7 +21,9 @@ export const FormListScreen = () => {
       <br />
       <Grid container gap={4}>
         {formList.map((form) => (
-          <FormCard key={form._id} form={form} />
+          <Grid key={form._id} item xs={12} sm={6} md={4} lg={3}>
+            <FormCard form={form} />
+          </Grid>
         ))}
       </Grid>
     </>

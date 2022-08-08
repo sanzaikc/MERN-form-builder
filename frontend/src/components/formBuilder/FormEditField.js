@@ -30,11 +30,8 @@ export const FormEditField = () => {
 
   return (
     <>
-      <Paper>
+      <Paper elevation={0}>
         <Box padding={2}>
-          <Typography>Edit Field</Typography>
-          <Divider />
-          <br />
           {!inputElement ? (
             <Typography variant="subtitle2">
               * Select a field to edit *
@@ -109,7 +106,7 @@ export const FormEditField = () => {
                   <BaseTextField
                     label="Min"
                     type="date"
-                    value={inputElement?.max ?? new Date()}
+                    value={inputElement?.min ?? new Date()}
                     onChange={(e) =>
                       handleElementUpdate(selectedElementIndex, {
                         ...inputElement,
@@ -134,9 +131,9 @@ export const FormEditField = () => {
           )}
         </Box>
       </Paper>
-      <Box padding={3}>
+      {/* <Box padding={3}>
         <pre>{JSON.stringify({ formElements }, null, 2)}</pre>
-      </Box>
+      </Box> */}
     </>
   );
 };

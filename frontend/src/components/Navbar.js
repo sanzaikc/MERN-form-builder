@@ -21,7 +21,7 @@ export const Navbar = () => {
       elevation={0}
       sx={{ borderBottom: 1, borderBottomColor: "divider" }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Toolbar>
           <Box
             sx={{

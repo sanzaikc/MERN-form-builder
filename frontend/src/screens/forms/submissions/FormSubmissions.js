@@ -41,7 +41,7 @@ export const FormSubmissions = () => {
           <div>No submissions yet</div>
         ) : (
           formSubmissions?.map((submission, index) => (
-            <Grid key={index} item xs={12} sm={6} md={4} lg={2} xl={1.5}>
+            <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
               <SubmissionCard submission={submission} />
             </Grid>
           ))
