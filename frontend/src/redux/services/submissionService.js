@@ -30,7 +30,8 @@ export const submissionApi = createApi({
     }),
 
     getSubmissionDetail: builder.query({
-      query: (submissionId) => `/submissions/${submissionId}`,
+      query: ({ collectionRef, submissionId }) =>
+        `/submissions/${submissionId}/${collectionRef}`,
       providesTags: (result, error, { _id }) => [{ type: "Submission", _id }],
     }),
 

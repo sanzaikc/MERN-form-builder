@@ -8,7 +8,7 @@ import { useLazyGetSubmissionDetailQuery } from "../../../redux/services/submiss
 import { generateField } from "../../../utils/generateField";
 
 export const SubmissionDetailScreen = () => {
-  const { submissionId } = useParams();
+  const { collectionRef, submissionId } = useParams();
 
   // RTKQuery
   const [getSubmissionDetail, { data: submissionDetail, isLoading, error }] =
@@ -17,8 +17,8 @@ export const SubmissionDetailScreen = () => {
   React.useEffect(() => {
     if (!submissionId) return;
 
-    getSubmissionDetail(submissionId);
-  }, [submissionId, getSubmissionDetail]);
+    getSubmissionDetail({ collectionRef, submissionId });
+  }, [collectionRef, submissionId, getSubmissionDetail]);
 
   if (isLoading) return <div>Loading...</div>;
 

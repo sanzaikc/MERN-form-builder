@@ -11,9 +11,9 @@ const router = Router();
 
 router.route("/").get(getAllSubmissions).post(addSubmission);
 
-router.route("/:submissionId").get(getSubmissionDetail);
-
 router.route("/form/:formId").get(getSubmissionsByForm);
+
+router.route("/:submissionId/:collectionRef").get(getSubmissionDetail);
 
 // router.route("/:submissionId/submit").get(getSubmissionDetail);
 

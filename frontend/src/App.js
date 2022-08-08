@@ -26,7 +26,7 @@ function App() {
 
           <Route element={<FormLayout />}>
             <Route
-              path="/submissions/:submissionId"
+              path="/submissions/:submissionId/:collectionRef"
               element={<SubmissionDetailScreen />}
             />
             <Route

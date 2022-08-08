@@ -1,28 +1,30 @@
 import { Form } from "../models/formModel.js";
 
 export const getAllForms = async (req, res) => {
-  const forms = await Form.aggregate([
-    {
-      $lookup: {
-        from: "submissions",
-        localField: "_id",
-        foreignField: "form",
-        as: "submissions",
-      },
-    },
-    {
-      $addFields: {
-        submissionCount: { $size: "$submissions" },
-      },
-    },
-    {
-      $project: {
-        name: 1,
-        fields: 1,
-        submissionCount: 1,
-      },
-    },
-  ]).sort("-createdAt");
+  // const forms = await Form.aggregate([
+  //   {
+  //     $lookup: {
+  //       from: "submissions",
+  //       localField: "_id",
+  //       foreignField: "form",
+  //       as: "submissions",
+  //     },
+  //   },
+  //   {
+  //     $addFields: {
+  //       submissionCount: { $size: "$submissions" },
+  //     },
+  //   },
+  //   {
+  //     $project: {
+  //       name: 1,
+  //       fields: 1,
+  //       submissionCount: 1,
+  //     },
+  //   },
+  // ]).sort("-createdAt");
+
+  const forms = await Form.find().sort("-createdAt");
 
   res.status(200).json(forms);
 };

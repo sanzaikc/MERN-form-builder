@@ -14,7 +14,14 @@ export const SubmissionCard = ({ submission }) => {
       style={{
         cursor: "pointer",
       }}
-      onClick={() => navigate(`/submissions/${submission._id}`)}
+      onClick={() =>
+        navigate(
+          `/submissions/${submission._id}/${submission.form.name.replace(
+            /\s/g,
+            ""
+          )}`
+        )
+      }
     >
       <CardContent>
         <Box display="flex" flexDirection="column" alignItems="center">
