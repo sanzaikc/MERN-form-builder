@@ -3,7 +3,6 @@ import React, { useContext, useMemo } from "react";
 import {
   Box,
   Checkbox,
-  Divider,
   FormGroup,
   FormControlLabel,
   Paper,
